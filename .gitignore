@@ -6,3 +6,4 @@
 /Journal.API/appsettings.Development.json
 /.vs
 /Journal.API/obj
+/Journal.API/.vs/Journal.API
