@@ -4,3 +4,5 @@
 
 /Journal.API/appsettings.json
 /Journal.API/appsettings.Development.json
+/.vs
+/Journal.API/obj
