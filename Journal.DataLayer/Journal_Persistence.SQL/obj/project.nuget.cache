@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RMcStpiQdXs=",
+  "dgSpecHash": "hIUBUxY5cj8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\jayden.pearce\\Journal.Ai_API\\Journal.Application\\Journal_Persistence.SQL\\Journal_Persistence.SQL.csproj",
+  "projectFilePath": "C:\\Users\\jayden.pearce\\Journal.AI_API_New\\Journal.DataLayer\\Journal_Persistence.SQL\\Journal_Persistence.SQL.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

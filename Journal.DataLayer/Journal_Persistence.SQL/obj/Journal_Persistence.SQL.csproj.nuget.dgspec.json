@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jayden.pearce\\Journal.Ai_API\\Journal.Application\\Journal_Persistence.SQL\\Journal_Persistence.SQL.csproj": {}
+    "C:\\Users\\jayden.pearce\\Journal.AI_API_New\\Journal.DataLayer\\Journal_Persistence.SQL\\Journal_Persistence.SQL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jayden.pearce\\Journal.Ai_API\\Journal.Application\\Journal_Persistence.SQL\\Journal_Persistence.SQL.csproj": {
+    "C:\\Users\\jayden.pearce\\Journal.AI_API_New\\Journal.DataLayer\\Journal_Persistence.SQL\\Journal_Persistence.SQL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jayden.pearce\\Journal.Ai_API\\Journal.Application\\Journal_Persistence.SQL\\Journal_Persistence.SQL.csproj",
+        "projectUniqueName": "C:\\Users\\jayden.pearce\\Journal.AI_API_New\\Journal.DataLayer\\Journal_Persistence.SQL\\Journal_Persistence.SQL.csproj",
         "projectName": "Journal_Persistence.SQL",
-        "projectPath": "C:\\Users\\jayden.pearce\\Journal.Ai_API\\Journal.Application\\Journal_Persistence.SQL\\Journal_Persistence.SQL.csproj",
+        "projectPath": "C:\\Users\\jayden.pearce\\Journal.AI_API_New\\Journal.DataLayer\\Journal_Persistence.SQL\\Journal_Persistence.SQL.csproj",
         "packagesPath": "C:\\Users\\jayden.pearce\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jayden.pearce\\Journal.Ai_API\\Journal.Application\\Journal_Persistence.SQL\\obj\\",
+        "outputPath": "C:\\Users\\jayden.pearce\\Journal.AI_API_New\\Journal.DataLayer\\Journal_Persistence.SQL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",

@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jayden.pearce\\Journal.Ai_API\\Journal.Application\\Journal_Domain\\Journal_Domain.csproj",
+      "projectUniqueName": "C:\\Users\\jayden.pearce\\Journal.AI_API_New\\Journal.Domain\\Journal_Domain\\Journal_Domain.csproj",
       "projectName": "Journal_Domain",
-      "projectPath": "C:\\Users\\jayden.pearce\\Journal.Ai_API\\Journal.Application\\Journal_Domain\\Journal_Domain.csproj",
+      "projectPath": "C:\\Users\\jayden.pearce\\Journal.AI_API_New\\Journal.Domain\\Journal_Domain\\Journal_Domain.csproj",
       "packagesPath": "C:\\Users\\jayden.pearce\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jayden.pearce\\Journal.Ai_API\\Journal.Application\\Journal_Domain\\obj\\",
+      "outputPath": "C:\\Users\\jayden.pearce\\Journal.AI_API_New\\Journal.Domain\\Journal_Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
