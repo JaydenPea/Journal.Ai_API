@@ -8,3 +8,9 @@
 /Journal.API/obj
 /Journal.API/.vs/Journal.API
 /Journal.Application/Journal.API/.vs
+/Journal.Application/Journal_Application/obj
+/Journal.Application/Journal_Domain/obj
+/Journal.Application/Journal_MigrationsHandler/obj
+/Journal.Application/Journal_Persistence.SQL/obj
+/Journal.Application/Journal.API/obj/Debug/net9.0/Journal.API.AssemblyInfo.cs
+/Journal.Application/Journal.API/obj/Debug/net9.0/Journal.API.AssemblyInfoInputs.cache
