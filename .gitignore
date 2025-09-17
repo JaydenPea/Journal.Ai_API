@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Journal.API/appsettings.json
+/Journal.API/appsettings.Development.json
