@@ -75,6 +75,7 @@ Current dependency structure:
 - .NET 9.0 with nullable reference types enabled
 - ASP.NET Core Web API with minimal API configuration
 - OpenAPI/Swagger integration for API documentation
+- **Supabase C# Library (v1.1.1)**: CRITICAL - This project uses Supabase as the database backend. ALL database operations MUST use the Supabase C# client library. Do NOT use Entity Framework, SQL Server, or any other database providers.
 
 ### Development Environment
 - Development URLs: HTTP (5274), HTTPS (7207)
@@ -101,7 +102,36 @@ Current dependency structure:
 - Use ILogger for structured logging throughout the application
 - Return consistent error responses following API standards
 
+## Database Guidelines - SUPABASE ONLY
+
+**CRITICAL: This project uses Supabase as the database backend. Follow these strict guidelines:**
+
+### Supabase Client Setup
+```csharp
+// Initialize Supabase client (as per https://supabase.com/docs/reference/csharp/initializing)
+var options = new Supabase.SupabaseOptions
+{
+    AutoConnectRealtime = true
+};
+
+var supabase = new Supabase.Client(supabaseUrl, supabaseKey, options);
+await supabase.InitializeAsync();
+```
+
+### Database Operations
+- **ALL database operations MUST use the Supabase C# client library**
+- **NEVER use Entity Framework, SQL Server, PostgreSQL drivers, or any other ORM**
+- Use Supabase's built-in CRUD operations, real-time subscriptions, and RPC functions
+- Follow Supabase's authentication and Row Level Security (RLS) patterns
+- Implement repository pattern in Infrastructure layer using Supabase client
+
+### Supabase Configuration
+- Store Supabase URL and API keys in appsettings.json or user secrets
+- Use environment-specific configurations for different Supabase projects
+- Configure Supabase client as a singleton service in DI container
+
 ### Testing
 - No testing framework currently configured
 - When adding tests, follow the project structure with separate test projects
 - Consider integration tests for API endpoints and unit tests for business logic
+- Use Supabase's testing utilities for database-related tests

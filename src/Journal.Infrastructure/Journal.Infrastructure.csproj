@@ -2,7 +2,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Journal.Domain\Journal.Domain.csproj" />
-    <ProjectReference Include="..\Journal.Application\Journal.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Supabase" Version="1.1.1" />
   </ItemGroup>
 
   <PropertyGroup>

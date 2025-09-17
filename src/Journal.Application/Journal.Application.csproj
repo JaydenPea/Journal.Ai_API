@@ -2,6 +2,17 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Journal.Domain\Journal.Domain.csproj" />
+    <ProjectReference Include="..\Journal.Infrastructure\Journal.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Supabase" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Consts\" />
+    <Folder Include="Mappers\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
   <PropertyGroup>

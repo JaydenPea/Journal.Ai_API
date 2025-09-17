@@ -1,6 +1,52 @@
 @Journal.API_HostAddress = http://localhost:5274
 
+# Weather Forecast (Demo endpoint)
 GET {{Journal.API_HostAddress}}/weatherforecast/
 Accept: application/json
+
+###
+
+# Account Profile
+GET {{Journal.API_HostAddress}}/api/account/profile/1a772856-d526-4044-99bf-8ec00466384e
+Accept: application/json
+
+###
+
+# Trading Endpoints
+
+# Get all trades
+GET {{Journal.API_HostAddress}}/api/trades
+Accept: application/json
+
+###
+
+# Get trades with filters
+GET {{Journal.API_HostAddress}}/api/trades?page=1&pageSize=10&status=open
+Accept: application/json
+
+###
+
+# Get trade stats
+GET {{Journal.API_HostAddress}}/api/trades/stats
+Accept: application/json
+
+###
+
+# Create a new trade
+POST {{Journal.API_HostAddress}}/api/trades
+Content-Type: application/json
+
+{
+  "symbol": "AAPL",
+  "tradeType": "long",
+  "positionSize": 100,
+  "entryPrice": 150.50,
+  "entryDate": "2024-01-15T09:30:00Z",
+  "tradingAccountId": "account-123",
+  "strategy": "Momentum",
+  "setup": "Breakout",
+  "stopLoss": 145.00,
+  "takeProfit": 160.00
+}
 
 ###
