@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "EAlmznWxo7Q=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jayden.pearce\\Journal.Ai_API\\Journal.Application\\Journal.API\\Journal.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jayden.pearce\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.7\\microsoft.aspnetcore.openapi.9.0.7.nupkg.sha512",
+    "C:\\Users\\jayden.pearce\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
+    "C:\\Users\\jayden.pearce\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.22.1\\microsoft.visualstudio.azure.containers.tools.targets.1.22.1.nupkg.sha512"
+  ],
+  "logs": []
+}

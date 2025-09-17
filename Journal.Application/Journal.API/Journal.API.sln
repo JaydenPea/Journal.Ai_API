@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journal.API", "Journal.API.csproj", "{BE5D2ECB-0AF9-F0C3-99B2-BB4EB649334E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal.Presentation", "Journal.Presentation", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal.Domain", "Journal.Domain", "{1B546B61-B804-4B9A-BFCA-E5404C54FCDD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal.DataLayer", "Journal.DataLayer", "{26EAE511-6DEE-4539-B006-99E2D919D83F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal.Applicaton", "Journal.Applicaton", "{7AE8BE82-24F6-4796-AA5D-BB114E9DB52C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE5D2ECB-0AF9-F0C3-99B2-BB4EB649334E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE5D2ECB-0AF9-F0C3-99B2-BB4EB649334E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE5D2ECB-0AF9-F0C3-99B2-BB4EB649334E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE5D2ECB-0AF9-F0C3-99B2-BB4EB649334E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BE5D2ECB-0AF9-F0C3-99B2-BB4EB649334E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDEB622B-4A5D-4F94-81AB-4FFA22E3C44C}
+	EndGlobalSection
+EndGlobal
