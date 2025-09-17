@@ -11,6 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journal.Infrastructure", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journal.api", "src\Journal.API\Journal.api.csproj", "{6E620E3C-3D3F-41A6-BD07-FE95CD04A369}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{B4BF725E-03CE-4773-A35E-272BC76694AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataLayer", "DataLayer", "{21B8C9FE-DAB8-4BFC-968C-BCDA64C276A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{AB90CE7B-7F8B-43C9-A021-D157ADC380D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +80,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1CF5314-256D-461A-AF08-7FE8CB1F36B8} = {B4BF725E-03CE-4773-A35E-272BC76694AC}
+		{EFAC1D0A-5D04-4B7A-8703-E75B48EC159E} = {AB90CE7B-7F8B-43C9-A021-D157ADC380D5}
+		{82467073-9176-4897-B058-34DCB15B1652} = {21B8C9FE-DAB8-4BFC-968C-BCDA64C276A1}
+		{6E620E3C-3D3F-41A6-BD07-FE95CD04A369} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F7C1B87E-3601-4274-B95B-8E75094891DC}
