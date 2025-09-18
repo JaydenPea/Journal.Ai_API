@@ -18,9 +18,9 @@ services:
       - SUPABASE_URL=${SUPABASE_URL:-http://localhost:54321}
       - SUPABASE_KEY=${SUPABASE_KEY:-your-service-role-key}
       
-    # Port mapping for Coolify
-    ports:
-      - "8080:8080"
+    # Coolify handles port mapping automatically
+    expose:
+      - "8080"
     
     # Health check
     healthcheck:
