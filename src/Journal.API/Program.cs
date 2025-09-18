@@ -31,25 +31,29 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Configure Supabase
-var url = builder.Configuration["SUPABASE_URL"];
-var key = builder.Configuration["SUPABASE_KEY"];
+var url = builder.Configuration["SUPABASE_URL"] ?? Environment.GetEnvironmentVariable("SUPABASE_URL");
+var key = builder.Configuration["SUPABASE_KEY"] ?? Environment.GetEnvironmentVariable("SUPABASE_KEY");
 
-if (string.IsNullOrEmpty(url) || string.IsNullOrEmpty(key))
+// Only initialize Supabase if credentials are available
+if (!string.IsNullOrEmpty(url) && !string.IsNullOrEmpty(key))
 {
-    throw new InvalidOperationException("SUPABASE_URL and SUPABASE_KEY must be configured in appsettings.json or environment variables.");
+    var options = new SupabaseOptions
+    {
+        AutoConnectRealtime = true
+    };
+
+    builder.Services.AddSingleton<Client>(provider => 
+    {
+        var client = new Client(url, key, options);
+        client.InitializeAsync().GetAwaiter().GetResult();
+        return client;
+    });
 }
-
-var options = new SupabaseOptions
+else
 {
-    AutoConnectRealtime = true
-};
-
-builder.Services.AddSingleton<Client>(provider => 
-{
-    var client = new Client(url, key, options);
-    client.InitializeAsync().GetAwaiter().GetResult();
-    return client;
-});
+    // Add a dummy client for development/testing
+    builder.Services.AddSingleton<Client>(provider => null!);
+}
 
 // Register repositories
 builder.Services.AddScoped<Journal.Domain.Repositories.IUserRepository, Journal.Infrastructure.Repositories.UserRepository>();
@@ -62,24 +66,7 @@ builder.Services.AddScoped<Journal.Application.Interfaces.Trading.ITradeService,
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Journal Trading API v1");
-        c.RoutePrefix = "swagger";
-        c.DocumentTitle = "Journal Trading API Documentation";
-        
-        // Enable search and expand all operations by default
-        c.EnableFilter();
-        c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.List);
-        
-        // Custom CSS for better appearance
-        c.InjectStylesheet("/swagger-ui/custom.css");
-    });
-}
-
+// Enable Swagger in all environments for Coolify deployment
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
@@ -90,12 +77,10 @@ app.UseSwaggerUI(c =>
     // Enable search and expand all operations by default
     c.EnableFilter();
     c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.List);
-
-    // Custom CSS for better appearance
-    c.InjectStylesheet("/swagger-ui/custom.css");
 });
 
-app.UseHttpsRedirection();
+// Remove HTTPS redirection for Coolify (proxy handles SSL)
+// app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
