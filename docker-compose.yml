@@ -18,9 +18,12 @@ services:
       - SUPABASE_URL=${SUPABASE_URL:-http://localhost:54321}
       - SUPABASE_KEY=${SUPABASE_KEY:-your-service-role-key}
       
-    # Coolify handles port mapping automatically
-    expose:
-      - "8080"
+    # Traefik labels for Coolify
+    labels:
+      - traefik.enable=true
+      - "traefik.http.routers.journal-api.rule=Host(`${FQDN}`)"
+      - traefik.http.routers.journal-api.entryPoints=http
+      - traefik.http.services.journal-api.loadbalancer.server.port=8080
     
     # Health check
     healthcheck:
@@ -40,14 +43,13 @@ services:
           memory: 256M
           cpus: '0.25'
     
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
     
     # Security options
     security_opt:
       - no-new-privileges:true
-    
-    # Temporarily disable read-only for debugging
-    # read_only: true
-    # tmpfs:
-    #   - /tmp
-    #   - /var/tmp
-    
