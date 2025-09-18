@@ -80,6 +80,21 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Journal Trading API v1");
+    c.RoutePrefix = "swagger";
+    c.DocumentTitle = "Journal Trading API Documentation";
+
+    // Enable search and expand all operations by default
+    c.EnableFilter();
+    c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.List);
+
+    // Custom CSS for better appearance
+    c.InjectStylesheet("/swagger-ui/custom.css");
+});
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
