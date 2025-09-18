@@ -6,10 +6,10 @@ namespace Journal.Infrastructure.Models;
 [Table("users")]
 public class UserEntity : BaseModel
 {
-    [PrimaryKey("UID")]
+    [PrimaryKey("id")]
     public string Id { get; set; } = string.Empty;
 
-    [Column("Email")]
+    [Column("email")]
     public string Email { get; set; } = string.Empty;
 
     [Column("display_name")]

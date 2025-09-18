@@ -18,16 +18,19 @@ public class UserRepository : IUserRepository
     {
         try
         {
-            var userEntity = await _supabaseClient
+            var response = await _supabaseClient
                 .From<UserEntity>()
                 .Select("*")
                 .Where(x => x.Id == userId)
-                .Single();
+                .Get();
 
+            var userEntity = response.Models.FirstOrDefault();
             return userEntity == null ? null : MapToDomain(userEntity);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            // Log the actual error to help debug
+            System.Console.WriteLine($"Error querying user {userId}: {ex.Message}");
             return null;
         }
     }

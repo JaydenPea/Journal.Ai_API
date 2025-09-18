@@ -4,8 +4,31 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+
+// Configure Swagger/OpenAPI
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "Journal Trading API",
+        Version = "v1",
+        Description = "A comprehensive trading journal API for managing trades, accounts, and analytics",
+        Contact = new Microsoft.OpenApi.Models.OpenApiContact
+        {
+            Name = "Trading Journal API",
+            Email = "support@tradingjournal.com"
+        }
+    });
+    
+    // Enable XML comments for better documentation
+    var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    if (File.Exists(xmlPath))
+    {
+        c.IncludeXmlComments(xmlPath);
+    }
+});
 
 // Configure Supabase
 var url = builder.Configuration["SUPABASE_URL"];
@@ -41,7 +64,20 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Journal Trading API v1");
+        c.RoutePrefix = "swagger";
+        c.DocumentTitle = "Journal Trading API Documentation";
+        
+        // Enable search and expand all operations by default
+        c.EnableFilter();
+        c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.List);
+        
+        // Custom CSS for better appearance
+        c.InjectStylesheet("/swagger-ui/custom.css");
+    });
 }
 
 app.UseHttpsRedirection();

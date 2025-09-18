@@ -6,15 +6,15 @@ public static class ApiRoutes
     
     public static class Account
     {
-        public const string Base = $"{ApiBase}/account";
-        public const string GetProfile = $"{Base}/profile/{{userId}}";
+        public const string Base = $"{ApiBase}/{{userId}}/account";
+        public const string GetProfile = $"{Base}/profile";
         public const string UpdateProfile = $"{Base}/profile";
-        public const string DeleteProfile = $"{Base}/profile/{{userId}}";
+        public const string DeleteProfile = $"{Base}/profile";
     }
     
     public static class Trades
     {
-        public const string Base = $"{ApiBase}/trades";
+        public const string Base = $"{ApiBase}/{{userId}}/trades";
         public const string GetAll = Base;
         public const string GetById = $"{Base}/{{id}}";
         public const string Create = Base;
@@ -26,7 +26,7 @@ public static class ApiRoutes
     
     public static class TradingAccounts
     {
-        public const string Base = $"{ApiBase}/accounts";
+        public const string Base = $"{ApiBase}/{{userId}}/accounts";
         public const string GetAll = Base;
         public const string GetById = $"{Base}/{{id}}";
         public const string Create = Base;
@@ -38,7 +38,7 @@ public static class ApiRoutes
     
     public static class Analytics
     {
-        public const string Base = $"{ApiBase}/analytics";
+        public const string Base = $"{ApiBase}/{{userId}}/analytics";
         public const string AdvancedMetrics = $"{Base}/advanced-metrics";
         public const string RiskAnalysis = $"{Base}/risk-analysis";
     }

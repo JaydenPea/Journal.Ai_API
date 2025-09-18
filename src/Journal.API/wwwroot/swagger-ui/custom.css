@@ -1,0 +1,159 @@
+/* Custom Swagger UI Styling for Trading Journal API */
+
+.swagger-ui .topbar {
+    background-color: #1e293b;
+    border-bottom: 2px solid #0ea5e9;
+}
+
+.swagger-ui .topbar .download-url-wrapper {
+    display: none;
+}
+
+.swagger-ui .info .title {
+    color: #0ea5e9;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.swagger-ui .info .description {
+    color: #64748b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.swagger-ui .scheme-container {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.swagger-ui .opblock.opblock-get {
+    background: rgba(14, 165, 233, 0.1);
+    border: 1px solid #0ea5e9;
+}
+
+.swagger-ui .opblock.opblock-post {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid #22c55e;
+}
+
+.swagger-ui .opblock.opblock-put {
+    background: rgba(251, 146, 60, 0.1);
+    border: 1px solid #fb923c;
+}
+
+.swagger-ui .opblock.opblock-delete {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+}
+
+.swagger-ui .opblock-summary {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.swagger-ui .opblock-description-wrapper p {
+    color: #475569;
+    font-size: 0.95rem;
+    margin: 0.5rem 0;
+}
+
+.swagger-ui .parameters-col_description p {
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+.swagger-ui .response-col_status {
+    font-weight: 600;
+}
+
+.swagger-ui .response-col_description .markdown p {
+    color: #475569;
+}
+
+/* Highlight trading-specific endpoints */
+.swagger-ui .opblock[id*="trades"] .opblock-summary {
+    background: linear-gradient(90deg, #0ea5e9, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.swagger-ui .opblock[id*="account"] .opblock-summary {
+    background: linear-gradient(90deg, #8b5cf6, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+/* Enhanced parameter styling */
+.swagger-ui .parameter__name {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.swagger-ui .parameter__type {
+    color: #0ea5e9;
+    font-weight: 500;
+}
+
+/* Better button styling */
+.swagger-ui .btn.execute {
+    background: #0ea5e9;
+    border-color: #0ea5e9;
+    color: white;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.swagger-ui .btn.execute:hover {
+    background: #0284c7;
+    border-color: #0284c7;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+}
+
+/* Model section improvements */
+.swagger-ui .model-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.swagger-ui .model-title {
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Response highlighting */
+.swagger-ui .highlight-code {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+/* Custom scrollbar */
+.swagger-ui ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.swagger-ui ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.swagger-ui ::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 4px;
+}
+
+.swagger-ui ::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}

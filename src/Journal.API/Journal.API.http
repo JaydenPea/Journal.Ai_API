@@ -1,4 +1,12 @@
 @Journal.API_HostAddress = http://localhost:5274
+@userId = 1a772856-d526-4044-99bf-8ec00466384e
+@tradeId = trade-123
+
+# API Documentation (Swagger UI)
+GET {{Journal.API_HostAddress}}/swagger
+Accept: text/html
+
+###
 
 # Weather Forecast (Demo endpoint)
 GET {{Journal.API_HostAddress}}/weatherforecast/
@@ -7,7 +15,7 @@ Accept: application/json
 ###
 
 # Account Profile
-GET {{Journal.API_HostAddress}}/api/account/profile/1a772856-d526-4044-99bf-8ec00466384e
+GET {{Journal.API_HostAddress}}/api/{{userId}}/account/profile
 Accept: application/json
 
 ###
@@ -15,25 +23,31 @@ Accept: application/json
 # Trading Endpoints
 
 # Get all trades
-GET {{Journal.API_HostAddress}}/api/trades
+GET {{Journal.API_HostAddress}}/api/{{userId}}/trades
 Accept: application/json
 
 ###
 
 # Get trades with filters
-GET {{Journal.API_HostAddress}}/api/trades?page=1&pageSize=10&status=open
+GET {{Journal.API_HostAddress}}/api/{{userId}}/trades?page=1&pageSize=10&status=open
+Accept: application/json
+
+###
+
+# Get specific trade
+GET {{Journal.API_HostAddress}}/api/{{userId}}/trades/{{tradeId}}
 Accept: application/json
 
 ###
 
 # Get trade stats
-GET {{Journal.API_HostAddress}}/api/trades/stats
+GET {{Journal.API_HostAddress}}/api/{{userId}}/trades/stats
 Accept: application/json
 
 ###
 
 # Create a new trade
-POST {{Journal.API_HostAddress}}/api/trades
+POST {{Journal.API_HostAddress}}/api/{{userId}}/trades
 Content-Type: application/json
 
 {
@@ -48,5 +62,24 @@ Content-Type: application/json
   "stopLoss": 145.00,
   "takeProfit": 160.00
 }
+
+###
+
+# Update a trade
+PUT {{Journal.API_HostAddress}}/api/{{userId}}/trades/{{tradeId}}
+Content-Type: application/json
+
+{
+  "exitPrice": 155.25,
+  "exitDate": "2024-01-16T15:30:00Z",
+  "status": "closed",
+  "outcome": "win",
+  "realizedPnl": 475.00
+}
+
+###
+
+# Delete a trade
+DELETE {{Journal.API_HostAddress}}/api/{{userId}}/trades/{{tradeId}}
 
 ###

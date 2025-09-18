@@ -4,7 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Journal.API.Controllers;
 
+/// <summary>
+/// User account management operations
+/// </summary>
 [ApiController]
+[Produces("application/json")]
 public class AccountController : ControllerBase
 {
     private readonly IAccountService _accountService;
@@ -14,7 +18,15 @@ public class AccountController : ControllerBase
         _accountService = accountService;
     }
 
+    /// <summary>
+    /// Get user profile information
+    /// </summary>
+    /// <param name="userId">The user ID to get profile for</param>
+    /// <returns>User profile data</returns>
     [HttpGet(ApiRoutes.Account.GetProfile)]
+    [ProducesResponseType(typeof(Journal.Application.DTOs.UserProfileDto), 200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
     public async Task<IActionResult> GetProfile(string userId)
     {
         if (string.IsNullOrWhiteSpace(userId))
