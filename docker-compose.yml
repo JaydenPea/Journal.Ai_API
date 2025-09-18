@@ -24,7 +24,7 @@ services:
     
     # Health check
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8080/health || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -45,9 +45,9 @@ services:
     security_opt:
       - no-new-privileges:true
     
-    # Read-only root filesystem for security
-    read_only: true
-    tmpfs:
-      - /tmp
-      - /var/tmp
+    # Temporarily disable read-only for debugging
+    # read_only: true
+    # tmpfs:
+    #   - /tmp
+    #   - /var/tmp
     
