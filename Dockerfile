@@ -31,8 +31,8 @@ RUN dotnet build "Journal.api.csproj" -c Release -o /app/build --no-restore
 # ===========================
 FROM build AS publish
 RUN dotnet publish "Journal.api.csproj" -c Release -o /app/publish \
-    --no-restore \
-    --no-build \
+    --runtime linux-x64 \
+    --self-contained false \
     -p:PublishTrimmed=false \
     -p:PublishReadyToRun=true
 
