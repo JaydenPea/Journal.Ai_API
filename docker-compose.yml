@@ -21,9 +21,9 @@ services:
     # Traefik labels for Coolify
     labels:
       - traefik.enable=true
-      - "traefik.http.routers.journal-api.rule=Host(`${FQDN}`)"
-      - traefik.http.routers.journal-api.entryPoints=http
-      - traefik.http.services.journal-api.loadbalancer.server.port=8080
+      - "traefik.http.routers.journal-api-${COMPOSE_PROJECT_NAME:-default}.rule=Host(`${FQDN}`)"
+      - "traefik.http.routers.journal-api-${COMPOSE_PROJECT_NAME:-default}.entryPoints=web"
+      - "traefik.http.services.journal-api-${COMPOSE_PROJECT_NAME:-default}.loadbalancer.server.port=8080"
     
     # Health check
     healthcheck:
