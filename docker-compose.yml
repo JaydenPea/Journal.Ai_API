@@ -8,32 +8,23 @@ services:
     container_name: journal-api
     restart: unless-stopped
     
-    # Environment variables
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:8080
       - DOTNET_RUNNING_IN_CONTAINER=true
       - DOTNET_EnableDiagnostics=0
-      # Supabase configuration (override with Coolify environment variables)
       - SUPABASE_URL=${SUPABASE_URL:-http://localhost:54321}
       - SUPABASE_KEY=${SUPABASE_KEY:-your-service-role-key}
       
-    # Traefik labels for Coolify
     labels:
       - traefik.enable=true
-      - "traefik.http.routers.journal-api-${COMPOSE_PROJECT_NAME:-default}.rule=Host(`${FQDN}`)"
-      - "traefik.http.routers.journal-api-${COMPOSE_PROJECT_NAME:-default}.entryPoints=web"
-      - "traefik.http.services.journal-api-${COMPOSE_PROJECT_NAME:-default}.loadbalancer.server.port=8080"
+      - "traefik.http.routers.journal-api.rule=Host(`${SERVICE_FQDN_JOURNAL_API}`)"
+      - "traefik.http.routers.journal-api.entrypoints=web"
+      - "traefik.http.routers.journal-api-secure.rule=Host(`${SERVICE_FQDN_JOURNAL_API}`)"
+      - "traefik.http.routers.journal-api-secure.entrypoints=websecure"
+      - "traefik.http.routers.journal-api-secure.tls=true"
+      - "traefik.http.services.journal-api.loadbalancer.server.port=8080"
     
-    # Health check
-    healthcheck:
-      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8080/health || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 60s
-    
-    # Resource limits for production
     deploy:
       resources:
         limits:
@@ -43,13 +34,18 @@ services:
           memory: 256M
           cpus: '0.25'
     
-    # Logging configuration
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "3"
     
-    # Security options
     security_opt:
       - no-new-privileges:true
+    
+    networks:
+      - coolify
+
+networks:
+  coolify:
+    external: true
