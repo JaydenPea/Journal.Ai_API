@@ -15,15 +15,8 @@ services:
       - DOTNET_EnableDiagnostics=0
       - SUPABASE_URL=${SUPABASE_URL:-http://localhost:54321}
       - SUPABASE_KEY=${SUPABASE_KEY:-your-service-role-key}
-      
-    labels:
-      - traefik.enable=true
-      - "traefik.http.routers.journal-api.rule=Host(`${SERVICE_FQDN_JOURNAL_API}`)"
-      - "traefik.http.routers.journal-api.entrypoints=web"
-      - "traefik.http.routers.journal-api-secure.rule=Host(`${SERVICE_FQDN_JOURNAL_API}`)"
-      - "traefik.http.routers.journal-api-secure.entrypoints=websecure"
-      - "traefik.http.routers.journal-api-secure.tls=true"
-      - "traefik.http.services.journal-api.loadbalancer.server.port=8080"
+    
+    # Remove all custom Traefik labels - let Coolify handle routing
     
     deploy:
       resources:
@@ -42,10 +35,3 @@ services:
     
     security_opt:
       - no-new-privileges:true
-    
-    networks:
-      - coolify
-
-networks:
-  coolify:
-    external: true
